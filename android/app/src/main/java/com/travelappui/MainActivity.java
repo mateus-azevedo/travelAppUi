@@ -4,7 +4,20 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 
+// It's necessary import this statement to work perfectly of react-native-screens
+// This change is required to avoid crashes related to View state being not persisted consistently across Activity restarts.
+import android.os.Bundle;
+
 public class MainActivity extends ReactActivity {
+ 
+  /** 
+   * The following code was added because the react-native-screens package requires
+   * a additional configuration to properly work on Android devices.
+   */
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule
