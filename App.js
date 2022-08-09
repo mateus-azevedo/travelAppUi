@@ -17,7 +17,7 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
   return (
-    <TabNavigator
+    <Tab.Navigator
       tabBarOptions={{
         style: styles.tabBar,
         activeTintColor: colors.orange,
@@ -26,7 +26,7 @@ const TabNavigator = () => {
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Liked" component={Liked} />
       <Tab.Screen name="Profile" component={Profile} />
-    </TabNavigator>
+    </Tab.Navigator>
   );
 };
 
