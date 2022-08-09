@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -10,12 +10,19 @@ import Home from './components/Home';
 import Liked from './components/Liked';
 import Profile from './components/Profile';
 
+import colors from './assets/colors/colors';
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
   return (
-    <TabNavigator>
+    <TabNavigator
+      tabBarOptions={{
+        style: styles.tabBar,
+        activeTintColor: colors.orange,
+        inactiveTintColor: colors.gray,
+      }}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Liked" component={Liked} />
       <Tab.Screen name="Profile" component={Profile} />
@@ -32,5 +39,13 @@ const App = () => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  tabBar: {
+    backgroundColor: colors.white,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+});
 
 export default App;
