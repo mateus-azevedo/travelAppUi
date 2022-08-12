@@ -1,8 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Feather from 'react-native-vector-icons/Feather';
+import Entypo from 'react-native-vector-icons/Entypo';
 import colors from '../assets/colors/colors';
 import profile from '../assets/images/person.png';
 
@@ -12,8 +22,27 @@ import discoverData from '../assets/data/discoverData';
 import learnMoreData from '../assets/data/learnMoreData';
 
 Feather.loadFont();
+Entypo.loadFont();
 
 const Home = ({ navigation }) => {
+  const renderDiscoverItem = ({ item }) => {
+    return (
+      <TouchableOpacity>
+        <ImageBackground
+          source={item.image}
+          style={styles.discoverItem}
+          imageStyle={styles.discoverItemImage}>
+          <Text style={styles.discoverItemTitle}>{item.title}</Text>
+
+          <View style={styles.discoverItemLocationWrapper}>
+            <Entypo name="location-pin" size={18} color={colors.white} />
+            <Text style={styles.discoverItemLocationText}>{item.location}</Text>
+          </View>
+        </ImageBackground>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -42,6 +71,16 @@ const Home = ({ navigation }) => {
             <Text style={styles.discoverCategoryText}>Cities</Text>
             <Text style={styles.discoverCategoryText}>Experiences</Text>
           </View>
+        </View>
+
+        <View style={styles.discoverItemsWrapper}>
+          <FlatList
+            data={discoverData}
+            renderItem={renderDiscoverItem}
+            keyExtractor={item => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
         </View>
       </ScrollView>
     </View>
@@ -84,6 +123,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.gray,
   },
+  discoverItem: {},
+  discoverItemImage: {},
+  discoverItemTitle: {},
+  discoverItemLocationWrapper: {},
+  discoverItemLocationText: {},
 });
 
 export default Home;
