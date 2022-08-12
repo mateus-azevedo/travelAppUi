@@ -61,6 +61,17 @@ const Home = ({ navigation }) => {
     );
   };
 
+  const renderLearnMoreItem = ({ item }) => {
+    return (
+      <ImageBackground
+        source={item.image}
+        style={styles.learnMoreItem}
+        imageStyle={styles.learnMoreItemImage}>
+        <Text style={styles.learnMoreItemText}>{item.title}</Text>
+      </ImageBackground>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -108,6 +119,20 @@ const Home = ({ navigation }) => {
             <FlatList
               data={activitiesData}
               renderItem={renderActivityItem}
+              keyExtractor={item => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+        </View>
+
+        {/* Learn More */}
+        <View style={styles.learnMoreWrapper}>
+          <Text style={styles.learnMoreTitle}>Learn More</Text>
+          <View style={styles.learnMoreItemsWrapper}>
+            <FlatList
+              data={learnMoreData}
+              renderItem={renderLearnMoreItem}
               keyExtractor={item => item.id}
               horizontal
               showsHorizontalScrollIndicator={false}
@@ -213,6 +238,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.gray,
   },
+  learnMoreWrapper: {
+    marginTop: 10,
+  },
+  learnMoreTitle: {
+    marginHorizontal: 20,
+    fontFamily: 'Lato-Bold',
+    fontSize: 24,
+    color: colors.black,
+  },
+  learnMoreItemsWrapper: {},
 });
 
 export default Home;
