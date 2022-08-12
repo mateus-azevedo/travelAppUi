@@ -65,7 +65,10 @@ const Home = ({ navigation }) => {
     return (
       <ImageBackground
         source={item.image}
-        style={styles.learnMoreItem}
+        style={[
+          styles.learnMoreItem,
+          { marginLeft: item.id === 'learnMore-1' ? 20 : 0 },
+        ]}
         imageStyle={styles.learnMoreItemImage}>
         <Text style={styles.learnMoreItemText}>{item.title}</Text>
       </ImageBackground>
@@ -247,7 +250,25 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: colors.black,
   },
-  learnMoreItemsWrapper: {},
+  learnMoreItemsWrapper: {
+    paddingVertical: 20,
+  },
+  learnMoreItem: {
+    width: 170,
+    height: 180,
+    justifyContent: 'flex-end',
+    marginRight: 20,
+  },
+  learnMoreItemImage: {
+    borderRadius: 20,
+  },
+  learnMoreItemText: {
+    fontFamily: 'Lato-Bold',
+    fontSize: 18,
+    color: colors.white,
+    marginHorizontal: 10,
+    marginVertical: 20,
+  },
 });
 
 export default Home;
