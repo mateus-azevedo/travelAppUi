@@ -27,7 +27,8 @@ Entypo.loadFont();
 const Home = ({ navigation }) => {
   const renderDiscoverItem = ({ item }) => {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Details', { item: item })}>
         <ImageBackground
           source={item.image}
           style={[
