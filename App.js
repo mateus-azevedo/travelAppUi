@@ -12,6 +12,7 @@ import Profile from './components/Profile';
 
 import colors from './assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 Entypo.loadFont();
 
@@ -23,18 +24,38 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         style: styles.tabBar,
-        activeTintColor: colors.orange,
-        inactiveTintColor: colors.gray,
+        tabBarActiveTintColor: colors.orange,
+        tabBarInactiveTintColor: colors.gray,
       }}>
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: () => <Entypo name="home" size={32} />,
+          tabBarIcon: ({ color }) => (
+            <Entypo name="home" size={32} color={color} />
+          ),
         }}
       />
-      <Tab.Screen name="Liked" component={Liked} />
-      <Tab.Screen name="Profile" component={Profile} />
+
+      <Tab.Screen
+        name="Liked"
+        component={Liked}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Entypo name="heart" size={32} color={color} />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" size={32} color={color} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
