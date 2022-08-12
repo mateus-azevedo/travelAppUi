@@ -173,6 +173,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     fontFamily: 'Lato-Bold',
     fontSize: 32,
+    color: colors.black,
   },
   discoverCategoriesWrapper: {
     marginHorizontal: 20,
