@@ -30,12 +30,16 @@ const Home = ({ navigation }) => {
       <TouchableOpacity>
         <ImageBackground
           source={item.image}
-          style={styles.discoverItem}
+          style={[
+            styles.discoverItem,
+            { marginLeft: item.id === 'discover-1' ? 20 : 0 },
+          ]}
           imageStyle={styles.discoverItemImage}>
           <Text style={styles.discoverItemTitle}>{item.title}</Text>
 
           <View style={styles.discoverItemLocationWrapper}>
             <Entypo name="location-pin" size={18} color={colors.white} />
+
             <Text style={styles.discoverItemLocationText}>{item.location}</Text>
           </View>
         </ImageBackground>
@@ -71,16 +75,16 @@ const Home = ({ navigation }) => {
             <Text style={styles.discoverCategoryText}>Cities</Text>
             <Text style={styles.discoverCategoryText}>Experiences</Text>
           </View>
-        </View>
 
-        <View style={styles.discoverItemsWrapper}>
-          <FlatList
-            data={discoverData}
-            renderItem={renderDiscoverItem}
-            keyExtractor={item => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          />
+          <View style={styles.discoverItemsWrapper}>
+            <FlatList
+              data={discoverData}
+              renderItem={renderDiscoverItem}
+              keyExtractor={item => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -106,14 +110,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   discoverWrapper: {
-    marginHorizontal: 20,
+    // marginHorizontal: 20,
     marginTop: 20,
   },
   discoverTitle: {
+    marginHorizontal: 20,
     fontFamily: 'Lato-Bold',
     fontSize: 32,
   },
   discoverCategoriesWrapper: {
+    marginHorizontal: 20,
     flexDirection: 'row',
     marginTop: 20,
   },
@@ -123,11 +129,36 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.gray,
   },
-  discoverItem: {},
-  discoverItemImage: {},
-  discoverItemTitle: {},
-  discoverItemLocationWrapper: {},
-  discoverItemLocationText: {},
+  discoverItemsWrapper: {
+    paddingVertical: 20,
+  },
+  discoverItem: {
+    width: 170,
+    height: 250,
+    justifyContent: 'flex-end',
+    paddingHorizontal: 10,
+    paddingVertical: 15,
+    marginRight: 20,
+  },
+  discoverItemImage: {
+    borderRadius: 20,
+  },
+  discoverItemTitle: {
+    fontFamily: 'Lato-Bold',
+    fontSize: 18,
+    color: colors.white,
+  },
+  discoverItemLocationWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 5,
+  },
+  discoverItemLocationText: {
+    marginLeft: 5,
+    fontFamily: 'Lato-Bold',
+    fontSize: 14,
+    color: colors.white,
+  },
 });
 
 export default Home;
