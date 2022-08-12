@@ -11,6 +11,9 @@ import Liked from './components/Liked';
 import Profile from './components/Profile';
 
 import colors from './assets/colors/colors';
+import Entypo from 'react-native-vector-icons/Entypo';
+
+Entypo.loadFont();
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,12 +21,18 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{
+      screenOptions={{
         style: styles.tabBar,
         activeTintColor: colors.orange,
         inactiveTintColor: colors.gray,
       }}>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: () => <Entypo name="home" size={32} />,
+        }}
+      />
       <Tab.Screen name="Liked" component={Liked} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>

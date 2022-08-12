@@ -11,20 +11,20 @@ apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
  * React Native Vector Icons 
  * To customize the files being copied
  */
- project.ext.vectoricons = [
-    iconFontNames: [
-        'Lato-Black.ttf',
-        'Lato-BlackItalic.ttf',
-        'Lato-Bold.ttf',
-        'Lato-BoldItalic.ttf',
-        'Lato-Italic.ttf',
-        'Lato-Light.ttf',
-        'Lato-LightItalic.ttf',
-        'Lato-Regular.ttf',
-        'Lato-Thin.ttf',
-        'Lato-ThinItalic.ttf'
-    ]
- ]
+//  project.ext.vectoricons = [
+//     iconFontNames: [
+//         'Lato-Black.ttf',
+//         'Lato-BlackItalic.ttf',
+//         'Lato-Bold.ttf',
+//         'Lato-BoldItalic.ttf',
+//         'Lato-Italic.ttf',
+//         'Lato-Light.ttf',
+//         'Lato-LightItalic.ttf',
+//         'Lato-Regular.ttf',
+//         'Lato-Thin.ttf',
+//         'Lato-ThinItalic.ttf'
+//     ]
+//  ]
 
 import com.android.build.OutputFile
 
