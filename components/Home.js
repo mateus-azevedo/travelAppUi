@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Feather from 'react-native-vector-icons/Feather';
@@ -29,6 +29,20 @@ const Home = ({ navigation }) => {
             <Image source={profile} style={styles.profileImage} />
           </View>
         </SafeAreaView>
+
+        {/* Discover */}
+        <View style={styles.discoverWrapper}>
+          <Text style={styles.discoverTitle}>Discover</Text>
+          <View style={styles.discoverCategoriesWrapper}>
+            <Text
+              style={[styles.discoverCategoryText, { color: colors.orange }]}>
+              All
+            </Text>
+            <Text style={styles.discoverCategoryText}>Destination</Text>
+            <Text style={styles.discoverCategoryText}>Cities</Text>
+            <Text style={styles.discoverCategoryText}>Experiences</Text>
+          </View>
+        </View>
       </ScrollView>
     </View>
   );
@@ -51,6 +65,24 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 10,
+  },
+  discoverWrapper: {
+    marginHorizontal: 20,
+    marginTop: 20,
+  },
+  discoverTitle: {
+    fontFamily: 'Lato-Bold',
+    fontSize: 32,
+  },
+  discoverCategoriesWrapper: {
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  discoverCategoryText: {
+    marginRight: 30,
+    fontFamily: 'Lato-Regular',
+    fontSize: 16,
+    color: colors.gray,
   },
 });
 
