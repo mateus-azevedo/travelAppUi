@@ -71,6 +71,12 @@ const Details = ({ route, navigation }) => {
             </View>
           </View>
         </View>
+
+        <TouchableOpacity
+          style={styles.buttonWrapper}
+          onPress={() => alert('You booked a trip!')}>
+          <Text style={styles.buttonText}>Book Now</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -178,6 +184,19 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato-Bold',
     fontSize: 14,
     color: colors.gray,
+  },
+  buttonWrapper: {
+    marginHorizontal: 20,
+    marginTop: 40,
+    backgroundColor: colors.orange,
+    alignItems: 'center',
+    paddingVertical: 15,
+    borderRadius: 10,
+  },
+  buttonText: {
+    fontFamily: 'Lato-Bold',
+    fontSize: 18,
+    color: colors.white,
   },
 });
 
