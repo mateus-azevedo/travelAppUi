@@ -35,7 +35,12 @@ const Details = ({ route, navigation }) => {
           </View>
         </View>
       </ImageBackground>
-      <View style={styles.descriptionWrapper} />
+
+      <View style={styles.descriptionWrapper}>
+        <View style={styles.heartWrapper}>
+          <Entypo name="heart" size={32} color={colors.orange} />
+        </View>
+      </View>
     </View>
   );
 };
@@ -78,6 +83,27 @@ const styles = StyleSheet.create({
     marginTop: -20,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
+  },
+  heartWrapper: {
+    position: 'absolute',
+    right: 40,
+    top: -30,
+    width: 64,
+    height: 64,
+    backgroundColor: colors.white,
+    borderRadius: 64,
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
 });
 
